@@ -10,7 +10,11 @@ import plotly.express as px
 
 st.set_page_config(layout="wide")
 st.title('USA Pollution Data')
-filename = '/Users/ksheerajaraghavan/CMU/2nd Sem/Interactive Data Science/HW2/HW2_Data_Science/cleaned.csv'
+# filename = '/Users/ksheerajaraghavan/CMU/2nd Sem/Interactive Data Science/HW2/HW2_Data_Science/cleaned.csv'
+
+url='https://drive.google.com/file/d/1d71oTtuquCXbSqeSLzhnUhBSbOzpBllP/view?usp=sharing'
+path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+df = pd.read_csv(path)
 
 # convert states
 states = {'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'California': 'CA',
@@ -149,7 +153,7 @@ def year(data):
 
 
 if __name__ == '__main__':
-    data = load_data(filename)
+    data = load_data(path)
     if st.checkbox('Show Raw Data'):
         st.subheader('Raw Data')
         st.write(data.head(10000))
