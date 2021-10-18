@@ -63,9 +63,12 @@ def year_line(data):
     # st.write(a)
     m = a.max()
     st.write(m)
-    # col1, col2, col3, col4 = st.columns(4)
-    # col1.metric('SO2 AQI', )
-    # st.line_chart(a)
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric('NO2 AQI', m['NO2 AQI'])
+    col2.metric('O3 AQI', m['O3 AQI'])
+    col3.metric('SO2 AQI', m['SO2 AQI'])
+    col4.metric('CO AQI', m['CO AQI'])
+    st.line_chart(a)
     st.text('From what I see, the trends fluctuate with different states')
 
 
