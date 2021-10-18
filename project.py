@@ -36,6 +36,26 @@ def load_data(f):
     df = pd.read_csv(f)
     return df
 
+def year_line(data):
+    df = data[data['State'] != 'Country Of Mexico']  # deleting Mexico
+    df = df[df['State'] != 'District Of Columbia']  # deleting Columbia
+    df['sr'] = df.State.apply(lambda x: states[x])
+    # st.write(df.head())
+    b = df.drop(['NO2 Mean', 'SO2 Mean', 'O3 Mean', 'CO Mean', 'NO2 1st Max Value', 'SO2 1st Max Value', 'O3 1st Max Value', 'CO 1st Max Value','NO2 1st Max Hour', 'SO2 1st Max Hour', 'O3 1st Max Hour', 'CO 1st Max Hour'], axis=1)
+    # st.write(b.head())
+    #b = b.set_index('Date Local')
+    b['Date Local'] = pd.to_datetime(b['Date Local'])
+    pollutant_list = ['NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
+    pollutant1 = st.selectbox('What pollutant do you want to see', pollutant_list)
+    # b = b.set_index('Date Local')
+    a = b.groupby('sr').resample('Y',on='Date Local').mean()
+    a.reset_index(inplace=True)
+    # st.write('A is ')
+    # st.write(a)
+    a['Year'] = a['Date Local'].dt.year
+    # Sorting values by Date Local (for animated choropleth presented below)
+    a.sort_values(by = 'Date Local', inplace = True)
+
 
 def maps_AQI(data):
     df = data[data['State'] != 'Country Of Mexico']  # deleting Mexico
@@ -51,11 +71,12 @@ def maps_AQI(data):
     # b = b.set_index('Date Local')
     a = b.groupby('sr').resample('Y',on='Date Local').mean()
     a.reset_index(inplace=True)
-    st.write('A is ')
-    st.write(a)
+    # st.write('A is ')
+    # st.write(a)
     a['Year'] = a['Date Local'].dt.year
     # Sorting values by Date Local (for animated choropleth presented below)
     a.sort_values(by = 'Date Local', inplace = True)
+    st.write(a)
     # Plotly choropleth showing AQI for Nitrogen Dioxide changes from 2000 to 2016
     fig_NO2 = px.choropleth(a,
                   locations = 'sr',
