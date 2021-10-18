@@ -65,9 +65,10 @@ def year_line(data):
     # m[0] = m[0].astype(int)
     # st.write(m)
     st.text('The max metrics are :')
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2 = st.columns(2)
     col1.metric('NO2 AQI', m['NO2 AQI'])
     col2.metric('O3 AQI', m['O3 AQI'])
+    col3, col4 = st.columns(2)
     col3.metric('SO2 AQI', m['SO2 AQI'])
     col4.metric('CO AQI', m['CO AQI'])
     st.text('Over Time...........')
@@ -132,7 +133,8 @@ def onestate(data):
     pollutant_list = ['NO2 Mean', 'SO2 Mean', 'O3 Mean', 'CO Mean', 'NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
     pollutant1 = st.multiselect('What pollutant do you want to see', pollutant_list)
     # st.write(data.head(10000))
-    st.text('Resampling the data based on year and month can change the graph... May be we can find patterns')
+    st.text('Resampling the data based on year and month can change the graph... ')
+    st.text('May be we can find patterns')
     time_list = ['Year', 'Month']
     time1 = st.selectbox('Choose Resampling time: ', time_list)
     b = data[data['State'] == values]
