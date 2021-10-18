@@ -132,7 +132,7 @@ def onestate(data):
     state_list = data.State.unique()
     values = st.selectbox(label='Choose one state', options=state_list)
     pollutant_list = ['NO2 Mean', 'SO2 Mean', 'O3 Mean', 'CO Mean', 'NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
-    pollutant1 = st.multiselect('What pollutant(s) do you want to see ? (You can choose multiple)', pollutant_list)
+    pollutant1 = st.multiselect('What pollutant(s) do you want to see ? (You can choose multiple)', pollutant_list,['NO2 Mean'])
     # st.write(data.head(10000))
     st.text('Resampling the data based on year and month can change the graph... ')
     st.text('May be we can find patterns')
@@ -195,6 +195,11 @@ def year(data):
         
 
     st.plotly_chart(fig)
+    st.subheader('As we change the year... We can notice the magnitudes of the pollutants change... ')
+    st.text('NO2 tends to decrease in most states')
+    st.text('CO also tends to decrese')
+    st.text('CO also tends to decrese')
+
     # st.line_chart(b)
 
 
@@ -217,6 +222,7 @@ if __name__ == '__main__':
     
     onestate(data)
     # statewise(data)
-    st.title('Year')
+    # st.title('Year')
     year(data)
+    st.subheader('Let us summarise ... ')
     maps_AQI(data)
