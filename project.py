@@ -61,7 +61,11 @@ def year_line(data):
     a = a.drop(['Date Local'], axis=1)
     a = a.set_index('Year')
     # st.write(a)
-    st.line_chart(a)
+    m = a.max()
+    st.write(m)
+    # col1, col2, col3, col4 = st.columns(4)
+    # col1.metric('SO2 AQI', )
+    # st.line_chart(a)
     st.text('From what I see, the trends fluctuate with different states')
 
 
@@ -85,7 +89,7 @@ def maps_AQI(data):
     a['Year'] = a['Date Local'].dt.year
     # Sorting values by Date Local (for animated choropleth presented below)
     a.sort_values(by = 'Date Local', inplace = True)
-    st.write(a)
+    # st.write(a)
     # Plotly choropleth showing AQI for Nitrogen Dioxide changes from 2000 to 2016
     fig_NO2 = px.choropleth(a,
                   locations = 'sr',
