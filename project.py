@@ -39,7 +39,10 @@ def load_data(f):
 def year_line(data):
     df = data[data['State'] != 'Country Of Mexico']  # deleting Mexico
     df = df[df['State'] != 'District Of Columbia']  # deleting Columbia
-    df['sr'] = df.State.apply(lambda x: states[x])
+    state_list = data.State.unique()
+    stat = st.selectbox(label='select multiple states', options=state_list)
+    df = df[df['State'] == stat]
+    # df['sr'] = df.State.apply(lambda x: states[x])
     # st.write(df.head())
     b = df.drop(['NO2 Mean', 'SO2 Mean', 'O3 Mean', 'CO Mean', 'NO2 1st Max Value', 'SO2 1st Max Value', 'O3 1st Max Value', 'CO 1st Max Value','NO2 1st Max Hour', 'SO2 1st Max Hour', 'O3 1st Max Hour', 'CO 1st Max Hour'], axis=1)
     # st.write(b.head())
