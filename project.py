@@ -40,7 +40,7 @@ def year_line(data):
     df = data[data['State'] != 'Country Of Mexico']  # deleting Mexico
     df = df[df['State'] != 'District Of Columbia']  # deleting Columbia
     state_list = data.State.unique()
-    stat = st.selectbox(label='select multiple states', options=state_list)
+    stat = st.selectbox(label='Select a state', options=state_list)
     df = df[df['State'] == stat]
     # df['sr'] = df.State.apply(lambda x: states[x])
     # st.write(df.head())
@@ -48,8 +48,6 @@ def year_line(data):
     # st.write(b.head())
     #b = b.set_index('Date Local')
     b['Date Local'] = pd.to_datetime(b['Date Local'])
-    pollutant_list = ['NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
-    pollutant1 = st.selectbox('What pollutant do you want to see', pollutant_list)
     # b = b.set_index('Date Local')
     # st.write(b.head())
     a = b.resample('Y',on='Date Local').mean()
@@ -64,8 +62,8 @@ def year_line(data):
     a = a.set_index('Year')
     # st.write(a)
     st.line_chart(a)
-    
-    
+
+
 
 def maps_AQI(data):
     df = data[data['State'] != 'Country Of Mexico']  # deleting Mexico
