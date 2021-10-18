@@ -188,7 +188,7 @@ if __name__ == '__main__':
 
     st.subheader('Lets make it simpler.')
     st.text('We can look at trends over one year')
-    year(data)
+    year_line(data)
     st.subheader('Select Check Box for State Wise Plots')
     if st.checkbox('State Plots'):
         statewise(data)
@@ -197,4 +197,5 @@ if __name__ == '__main__':
     # if st.checkbox('')
     maps_AQI(data)
     onestate(data)
+    year(data)
     
