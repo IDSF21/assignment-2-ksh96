@@ -192,7 +192,7 @@ def year(data):
     st.write(len(b.columns))
     po = ['NO2', 'O3', 'SO2', 'CO']
     j = 0
-    for i in range(4, len(b.columns)-1 ,2):
+    for i in range(4, 10 ,2):
         st.subheader(po[j])
         col1, col2 = st.columns(2)
         with col1:
