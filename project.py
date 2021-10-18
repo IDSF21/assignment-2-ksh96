@@ -63,7 +63,7 @@ def year_line(data):
     a = a.drop(['Date Local'], axis=1)
     a = a.set_index('Year')
     st.write(a)
-
+    st.line_chart(a)
 
 def maps_AQI(data):
     df = data[data['State'] != 'Country Of Mexico']  # deleting Mexico
