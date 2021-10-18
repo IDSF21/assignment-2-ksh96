@@ -51,7 +51,8 @@ def year_line(data):
     pollutant_list = ['NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
     pollutant1 = st.selectbox('What pollutant do you want to see', pollutant_list)
     # b = b.set_index('Date Local')
-    a = b.groupby('sr').resample('Y',on='Date Local').mean()
+    st.write(b.head())
+    a = b.resample('Y',on='Date Local').mean()
     a.reset_index(inplace=True)
     # st.write('A is ')
     # st.write(a)
