@@ -51,8 +51,8 @@ def maps_AQI(data):
     # b = b.set_index('Date Local')
     a = b.groupby('sr').resample('Y',on='Date Local').mean()
     a.reset_index(inplace=True)
-    # st.write('A is ')
-    # st.write(a)
+    st.write('A is ')
+    st.write(a)
     a['Year'] = a['Date Local'].dt.year
     # Sorting values by Date Local (for animated choropleth presented below)
     a.sort_values(by = 'Date Local', inplace = True)
