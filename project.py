@@ -62,6 +62,7 @@ def year_line(data):
     a = a.set_index('Year')
     # st.write(a)
     st.line_chart(a)
+    st.text('From what I see, the trends fluctuate with different states')
 
 
 
@@ -200,7 +201,7 @@ if __name__ == '__main__':
 
     # # maps_daily(data)
     # # if st.checkbox('')
-    # maps_AQI(data)
+    maps_AQI(data)
     # onestate(data)
     # year(data)
     
