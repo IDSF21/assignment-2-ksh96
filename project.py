@@ -62,8 +62,10 @@ def year_line(data):
     # st.write(a)
     a = a.drop(['Date Local'], axis=1)
     a = a.set_index('Year')
-    st.write(a)
+    # st.write(a)
     st.line_chart(a)
+    
+    
 
 def maps_AQI(data):
     df = data[data['State'] != 'Country Of Mexico']  # deleting Mexico
@@ -194,13 +196,13 @@ if __name__ == '__main__':
     st.subheader('Lets make it simpler.')
     st.text('We can look at trends over one year')
     year_line(data)
-    st.subheader('Select Check Box for State Wise Plots')
-    if st.checkbox('State Plots'):
-        statewise(data)
+    # st.subheader('Select Check Box for State Wise Plots')
+    # if st.checkbox('State Plots'):
+    #     statewise(data)
 
-    # maps_daily(data)
-    # if st.checkbox('')
-    maps_AQI(data)
-    onestate(data)
-    year(data)
+    # # maps_daily(data)
+    # # if st.checkbox('')
+    # maps_AQI(data)
+    # onestate(data)
+    # year(data)
     
