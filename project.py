@@ -200,7 +200,7 @@ def year(data):
     st.text('NO2 tends to decrease in most states')
     st.text('CO also tends to decrese')
     st.text('SO2 also tends to increse')
-    
+
 
     # st.line_chart(b)
 
@@ -214,7 +214,7 @@ if __name__ == '__main__':
     st.text('Hmm... I think I need to be an Environmental Engineer to understand this...')
 
     st.subheader('Lets make it simpler.')
-    st.text('We can look at trends over one year')
+    st.text('We can look at trends over the years')
     year_line(data)
     # st.subheader('Select Check Box for State Wise Plots')
     # if st.checkbox('State Plots'):
