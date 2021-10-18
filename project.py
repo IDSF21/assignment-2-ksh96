@@ -59,6 +59,7 @@ def year_line(data):
     a['Year'] = a['Date Local'].dt.year
     # Sorting values by Date Local (for animated choropleth presented below)
     a.sort_values(by = 'Date Local', inplace = True)
+    st.write(a)
 
 
 def maps_AQI(data):
