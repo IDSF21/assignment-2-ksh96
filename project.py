@@ -134,7 +134,7 @@ def year(data):
     values = st.selectbox(label='Select State', options=state_list)
     year_list = np.arange(2000, 2017)
     # st.write(year_list)
-    year = st.multiselect('What year do you want to see?', year_list)
+    year = st.selectbox('What year do you want to see?', year_list)
     # st.write(data.head(10000))
 
     b = data[data['State'] == values]
@@ -151,7 +151,7 @@ def year(data):
         
 
     st.plotly_chart(fig)
-    # st.line_chart(b)
+    st.line_chart(b)
 
 
 if __name__ == '__main__':
