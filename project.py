@@ -132,7 +132,7 @@ def onestate(data):
     # st.subheader('Choose all the pollutants for one state')
     state_list = data.State.unique()
     values = st.selectbox(label='Choose one state', options=state_list)
-    pollutant_list = ['NO2 Mean', 'SO2 Mean', 'O3 Mean', 'CO Mean', 'NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
+    pollutant_list = ['NO2 Mean', 'SO2 Mean', 'O3 Mean', 'CO Mean',  'NO2 1st Max Value', 'SO2 1st Max Value', 'O3 1st Max Value', 'CO 1st Max Value','NO2 1st Max Hour', 'SO2 1st Max Hour', 'O3 1st Max Hour', 'CO 1st Max Hour']
     pollutant1 = st.multiselect('What pollutant(s) do you want to see ? (You can choose multiple)', pollutant_list,['NO2 Mean'])
     # st.write(data.head(10000))
     st.text('Resampling the data based on year and month can change the graph... ')
