@@ -51,7 +51,7 @@ def year_line(data):
     pollutant_list = ['NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
     pollutant1 = st.selectbox('What pollutant do you want to see', pollutant_list)
     # b = b.set_index('Date Local')
-    st.write(b.head())
+    # st.write(b.head())
     a = b.resample('Y',on='Date Local').mean()
     a.reset_index(inplace=True)
     # st.write('A is ')
@@ -59,6 +59,9 @@ def year_line(data):
     a['Year'] = a['Date Local'].dt.year
     # Sorting values by Date Local (for animated choropleth presented below)
     a.sort_values(by = 'Date Local', inplace = True)
+    # st.write(a)
+    a = a.drop(['Date Local'], axis=1)
+    a = a.set_index('Year')
     st.write(a)
 
 
