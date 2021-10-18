@@ -134,7 +134,7 @@ def year(data):
     values = st.selectbox(label='Select State', options=state_list)
     year_list = np.arange(2000, 2017)
     # st.write(year_list)
-    year = st.selectbox('What year do you want to see?', year_list)
+    year = st.multiselect('What year do you want to see?', year_list)
     # st.write(data.head(10000))
 
     b = data[data['State'] == values]
@@ -163,7 +163,7 @@ if __name__ == '__main__':
     st.text('Hmm... I think I need to be an Environmental Engineer to understand this...')
 
     st.subheader('Lets make it simpler.')
-    st.text('We can look at trends over time')
+    st.text('We can look at trends over one year')
     year(data)
     st.subheader('Select Check Box for State Wise Plots')
     if st.checkbox('State Plots'):
