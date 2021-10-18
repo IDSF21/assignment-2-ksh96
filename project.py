@@ -8,7 +8,7 @@ import plotly.express as px
 
 # from geopy.geocoders import Nominatim
 
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 
 # filename = '/Users/ksheerajaraghavan/CMU/2nd Sem/Interactive Data Science/HW2/HW2_Data_Science/cleaned.csv'
 
@@ -130,6 +130,7 @@ def statewise(data):
 def year(data):
     import time
     state_list = data.State.unique()
+    st.text('Let us be more specific. Think of your home state...')
     values = st.selectbox(label='Select State', options=state_list)
     year_list = np.arange(2000, 2017)
     # st.write(year_list)
@@ -137,16 +138,17 @@ def year(data):
     # st.write(data.head(10000))
 
     b = data[data['State'] == values]
-    st.write(b)
+    # st.write(b)
     b['Date Local'] = pd.to_datetime(b['Date Local'])
     mask = b['Date Local'].dt.year == int(year)
     b = b[mask]
-    st.write(b)
+    b = b.drop(['NO2 1st Max Value', 'NO2 1st Max Hour', 'O3 1st Max Value', 'O3 1st Max Hour','SO2 1st Max Value', 'SO2 1st Max Hour', 'CO 1st Max Value', 'CO 1st Max Hour' ],axis=1)
+    # st.write(b)
 
     for i in range(4, 20):
         fig = px.scatter(b, x='Date Local', y=b.columns[i])
         st.plotly_chart(fig)
-        time.sleep(1)
+        
 
     st.plotly_chart(fig)
     # st.line_chart(b)
@@ -157,9 +159,11 @@ if __name__ == '__main__':
     st.title('Have we destroyed our planet Earth?')
     st.header('Let us look at US Air Quality.....')
     st.text('Let us look at the raw data...')
-    st.subheader('Raw Data')
     st.write(data.head(100))
-    
+    st.text('Hmm... I think I need to be an Environmental Engineer to understand this...')
+
+    st.subheader('Lets make it simpler.')
+
     st.subheader('Select Check Box for State Wise Plots')
     if st.checkbox('State Plots'):
         statewise(data)
