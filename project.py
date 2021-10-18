@@ -188,8 +188,8 @@ def year(data):
     mask = b['Date Local'].dt.year == int(year)
     b = b[mask]
     b = b.drop(['NO2 1st Max Value', 'NO2 1st Max Hour', 'O3 1st Max Value', 'O3 1st Max Hour','SO2 1st Max Value', 'SO2 1st Max Hour', 'CO 1st Max Value', 'CO 1st Max Hour' ],axis=1)
-    st.write(b)
-    st.write(len(b.columns))
+    # st.write(b)
+    # st.write(len(b.columns))
     po = ['NO2', 'O3', 'SO2', 'CO']
     j = 0
     for i in range(4, len(b.columns)-1 ,2):
