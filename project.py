@@ -128,12 +128,13 @@ def maps_AQI(data):
 def onestate(data):
     st.subheader('Choose all the pollutants for one state')
     state_list = data.State.unique()
-    values = st.selectbox(label='select multiple states', options=state_list)
+    values = st.selectbox(label='Choose one state', options=state_list)
     pollutant_list = ['NO2 Mean', 'SO2 Mean', 'O3 Mean', 'CO Mean', 'NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
     pollutant1 = st.multiselect('What pollutant do you want to see', pollutant_list)
     # st.write(data.head(10000))
+    st.text('Resampling the data based on year and month can change the graph... May be we can find patterns')
     time_list = ['Year', 'Month']
-    time1 = st.selectbox('Choose time: ', time_list)
+    time1 = st.selectbox('Choose Resampling time: ', time_list)
     b = data[data['State'] == values]
     pollutant1 = pollutant1 + ['Date Local', 'State']
     b = b.filter(pollutant1)
@@ -211,7 +212,7 @@ if __name__ == '__main__':
 
     # # maps_daily(data)
     # # if st.checkbox('')
-    maps_AQI(data)
+    
     onestate(data)
     # year(data)
-    
+    maps_AQI(data)
