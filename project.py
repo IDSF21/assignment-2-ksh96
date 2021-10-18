@@ -188,8 +188,9 @@ def year(data):
     mask = b['Date Local'].dt.year == int(year)
     b = b[mask]
     b = b.drop(['NO2 1st Max Value', 'NO2 1st Max Hour', 'O3 1st Max Value', 'O3 1st Max Hour','SO2 1st Max Value', 'SO2 1st Max Hour', 'CO 1st Max Value', 'CO 1st Max Hour' ],axis=1)
-    # st.write(b)
-
+    st.write(b)
+    st.write(len(b.columns))
+    col1, col2 = st.columns(2)
     for i in range(4, len(b.columns)):
         fig = px.scatter(b, x='Date Local', y=b.columns[i])
         st.plotly_chart(fig)
@@ -234,5 +235,6 @@ if __name__ == '__main__':
     st.text('Depending on the sate we notice that certain pollutants decrease like NO2 and CO')
     st.text('The states with large urban population, has higher amounts of pollutants in the atmosphere')
     st.text('Depending on the sate we notice that certain pollutants decrease like ozone increase')
-    st.text('NO2 mean has a similar U-shaped graph every year for most states, showing annual trends. This is visualised by looking at the different scatter plots for different states.')
+    st.text('NO2 mean has a similar U-shaped graph every year for most states, showing annual trends.')
+    st.text(' This is visualised by looking at the different scatter plots for different states.')
 
