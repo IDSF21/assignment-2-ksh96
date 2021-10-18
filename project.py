@@ -190,8 +190,10 @@ def year(data):
     b = b.drop(['NO2 1st Max Value', 'NO2 1st Max Hour', 'O3 1st Max Value', 'O3 1st Max Hour','SO2 1st Max Value', 'SO2 1st Max Hour', 'CO 1st Max Value', 'CO 1st Max Hour' ],axis=1)
     st.write(b)
     st.write(len(b.columns))
-    
-    for i in range(4, len(b.columns),2):
+    po = ['NO2', 'O3', 'SO2', 'CO']
+    j = 0
+    for i in range(4, len(b.columns)-1 ,2):
+        st.subheader(po[j])
         col1, col2 = st.columns(2)
         with col1:
             fig = px.scatter(b, x='Date Local', y=b.columns[i])
@@ -199,7 +201,7 @@ def year(data):
         with col2:
             fig = px.scatter(b, x='Date Local', y=b.columns[i+1])
             st.plotly_chart(fig)
-        
+        j += 1
 
     st.plotly_chart(fig)
     st.subheader('As we change the year... We can notice the magnitudes of the pollutants change... ')
