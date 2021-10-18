@@ -199,7 +199,8 @@ def year(data):
     st.subheader('As we change the year... We can notice the magnitudes of the pollutants change... ')
     st.text('NO2 tends to decrease in most states')
     st.text('CO also tends to decrese')
-    st.text('CO also tends to decrese')
+    st.text('SO2 also tends to increse')
+    
 
     # st.line_chart(b)
 
