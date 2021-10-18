@@ -192,7 +192,7 @@ def year(data):
     st.write(len(b.columns))
     po = ['NO2', 'O3', 'SO2', 'CO']
     j = 0
-    for i in range(4, 10 ,2):
+    for i in range(4, len(b.columns)-1 ,2):
         st.subheader(po[j])
         col1, col2 = st.columns(2)
         with col1:
@@ -203,7 +203,7 @@ def year(data):
             st.plotly_chart(fig)
         j += 1
 
-    st.plotly_chart(fig)
+    
     st.subheader('As we change the year... We can notice the magnitudes of the pollutants change... ')
     st.text('NO2 tends to decrease in most states')
     st.text('CO also tends to decrese')
