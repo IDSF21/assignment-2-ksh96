@@ -145,7 +145,7 @@ def year(data):
     b = b.drop(['NO2 1st Max Value', 'NO2 1st Max Hour', 'O3 1st Max Value', 'O3 1st Max Hour','SO2 1st Max Value', 'SO2 1st Max Hour', 'CO 1st Max Value', 'CO 1st Max Hour' ],axis=1)
     # st.write(b)
 
-    for i in range(4, 20):
+    for i in range(4, len(df.columns)):
         fig = px.scatter(b, x='Date Local', y=b.columns[i])
         st.plotly_chart(fig)
         
