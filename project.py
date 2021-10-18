@@ -78,6 +78,7 @@ def year_line(data):
 
 
 def maps_AQI(data):
+    st.text('Change the pollutants and Play the video')
     df = data[data['State'] != 'Country Of Mexico']  # deleting Mexico
     df = df[df['State'] != 'District Of Columbia']  # deleting Columbia
     df['sr'] = df.State.apply(lambda x: states[x])
