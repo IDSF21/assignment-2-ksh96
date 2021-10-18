@@ -8,7 +8,7 @@ import plotly.express as px
 
 # from geopy.geocoders import Nominatim
 
-# st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # filename = '/Users/ksheerajaraghavan/CMU/2nd Sem/Interactive Data Science/HW2/HW2_Data_Science/cleaned.csv'
 
