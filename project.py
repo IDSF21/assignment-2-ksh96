@@ -62,9 +62,7 @@ def year_line(data):
     a = a.set_index('Year')
     # st.write(a)
     m = a.max()
-    trunc = lambda x: math.trunc(1000 * x) / 1000;
-
-    m.applymap(trunc)
+    m[0] = m[0].as_type('int')
     st.write(m)
     col1, col2, col3, col4 = st.columns(4)
     col1.metric('NO2 AQI', m['NO2 AQI'])
