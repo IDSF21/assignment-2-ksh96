@@ -151,7 +151,7 @@ def year(data):
         
 
     st.plotly_chart(fig)
-    st.line_chart(b)
+    # st.line_chart(b)
 
 
 if __name__ == '__main__':
