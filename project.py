@@ -221,10 +221,18 @@ if __name__ == '__main__':
     #     statewise(data)
 
   
-    
+    st.subheader('For a single state let us visualise the trends of the pollutants')
     onestate(data)
     # statewise(data)
     # st.title('Year')
+    st.subheader('Can we be more specific? Let us look at one year for one state')
     year(data)
-    st.subheader('Let us summarise ... ')
+    st.header('Let us summarise ... ')
+    st.subheader('US map overall')
     maps_AQI(data)
+    st.subheader('Observations')
+    st.text('Depending on the sate we notice that certain pollutants decrease like NO2 and CO')
+    st.text('The states with large urban population, has higher amounts of pollutants in the atmosphere')
+    st.text('Depending on the sate we notice that certain pollutants decrease like ozone increase')
+    st.text('NO2 mean has a similar U-shaped graph every year for most states, showing annual trends. This is visualised by looking at the different scatter plots for different states.')
+
