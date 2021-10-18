@@ -9,7 +9,7 @@ import plotly.express as px
 # from geopy.geocoders import Nominatim
 
 st.set_page_config(layout="wide")
-st.title('USA Pollution Data')
+
 # filename = '/Users/ksheerajaraghavan/CMU/2nd Sem/Interactive Data Science/HW2/HW2_Data_Science/cleaned.csv'
 
 url='https://drive.google.com/file/d/1d71oTtuquCXbSqeSLzhnUhBSbOzpBllP/view?usp=sharing'
@@ -86,7 +86,7 @@ def maps_AQI(data):
 
 
 def onestate(data):
-    st.subheader('Choose all the pollutatns for one state')
+    st.subheader('Choose all the pollutants for one state')
     state_list = data.State.unique()
     values = st.selectbox(label='select multiple states', options=state_list)
     pollutant_list = ['NO2 Mean', 'SO2 Mean', 'O3 Mean', 'CO Mean', 'NO2 AQI', 'SO2 AQI', 'O3 AQI', 'CO AQI']
@@ -130,10 +130,10 @@ def statewise(data):
 def year(data):
     import time
     state_list = data.State.unique()
-    values = st.selectbox(label='select state', options=state_list)
+    values = st.selectbox(label='Select State', options=state_list)
     year_list = np.arange(2000, 2017)
     # st.write(year_list)
-    year = st.selectbox('What year do you want to see', year_list)
+    year = st.selectbox('What year do you want to see?', year_list)
     # st.write(data.head(10000))
 
     b = data[data['State'] == values]
@@ -154,10 +154,13 @@ def year(data):
 
 if __name__ == '__main__':
     data = load_data(path)
-    if st.checkbox('Show Raw Data'):
-        st.subheader('Raw Data')
-        st.write(data.head(10000))
-    st.subheader('select check box for state wise plots')
+    st.title('Have we destroyed our planet Earth?')
+    st.header('Let us look at US Air Quality.....')
+    st.text('Let us look at the raw data...')
+    st.subheader('Raw Data')
+    st.write(data.head(100))
+    
+    st.subheader('Select Check Box for State Wise Plots')
     if st.checkbox('State Plots'):
         statewise(data)
 
