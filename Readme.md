@@ -27,4 +27,8 @@ The data set was downloaded from [Kaggle](https://www.kaggle.com/sogun3/uspollut
 
 
 ## Development 
-It took about 30 hours for me to develop the application. I initially experimented with different datasets to figure out what I want to showcase. This was 20% of time. After deciding the dataset, I spent 60% of my time on EDA, to clean the data and sample the data for different conditions. I spent 20% of time to develop my application and tell a story. 
+It took about 40 hours for me to develop the application. I initially experimented with different datasets to figure out what I want to showcase. This was 20% of time. After deciding the dataset, I spent 60% of my time on EDA, to clean the data and sample the data for different conditions. I spent 20% of time to develop my application and tell a story. 
+
+## Future Work
+1. Concentrate on a particular region a perfrom a deep analysis on the pollution statistics. 
+2. Suggest a method or a plan to reduce pollution
