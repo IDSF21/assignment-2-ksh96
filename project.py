@@ -60,7 +60,7 @@ def year_line(data):
     # st.write(a)
     a = a.drop(['Date Local'], axis=1)
     a = a.set_index('Year')
-    st.write(a.dtypes)
+    st.write(a)
     m = a.max()
     # m[0] = m[0].astype(int)
     # st.write(m)
